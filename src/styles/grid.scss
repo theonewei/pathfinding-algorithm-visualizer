@@ -1,0 +1,44 @@
+.grid-row {
+  display: flex;
+  list-style-type: none;
+
+  .node{
+    border: 1px solid black;
+    box-sizing: border-box;
+  }
+
+  .start-node{
+    background-color: green;
+  }
+
+  .end-node{
+    background-color: red;
+  }
+
+  @keyframes bloom{
+    0% {background-color: yellow;}
+    1% {background-color: yellow;}
+    3% {background-color: green;}
+    100% {background-color: blue;}
+  }
+
+  .visited:not(.end-node){
+    animation-name: bloom;
+    animation-duration: 2s;
+    background-color: blue;
+  }
+  
+  .path:not(.end-node){
+    background-color: pink;
+  }
+}
+
+#grid{
+  display: flex;
+  flex-direction: column;
+  color: transparent;
+
+  button {
+    width: 200px;
+  }
+}
