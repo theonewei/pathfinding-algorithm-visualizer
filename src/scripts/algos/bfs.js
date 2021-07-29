@@ -1,4 +1,4 @@
-import Queue from '../classes/queue'
+import Queue from '../utils/queue'
 import animatePath from '../utils/animations'
 
 function breadthFirstSearch(startNode,speed){
