@@ -8,6 +8,7 @@ class Node {
     this.board = board
     this.position = position
     this.pathFromStart = []
+    this.priorityValue = Infinity
   }
 }
 
