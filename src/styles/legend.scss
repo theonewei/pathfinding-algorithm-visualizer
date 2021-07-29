@@ -1,0 +1,36 @@
+#legend-bar{
+  display: flex;
+  justify-content: space-around;
+  background-color: $element-background;
+  padding: 3vh;
+  box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
+  .example{
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    margin: 8px;
+  }
+
+  .start{
+    background-color: $start;
+    border: 1px solid white;
+  }
+
+  .end{
+    background-color: $end;
+    border: 1px solid white;
+  }
+
+  .searched{
+    background-color: $searched;
+  }
+
+  .path{
+    background-color: $path-color;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+  }
+}

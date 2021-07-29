@@ -1,3 +1,15 @@
 body {
+  background-color: $page-background;
+  font-family: 'Noto Sans TC', sans-serif;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+  color: white;
+}
+
+#app {
   display: flex;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }

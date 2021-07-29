@@ -1,5 +1,4 @@
 import Node from "./node"
-import breadthFirstSearch from "../algos/bfs"
 
 class Board {
   constructor(height,width,startPos,endPos){
@@ -27,6 +26,21 @@ class Board {
     return this.grid[row][col]
   }
 
+  reset(){
+    for(const row of this.grid){
+      for(const node of row){
+        node.visited = false
+        node.checked = false
+        node.pathFromStart = []
+        const pos = node.position
+        const nodeBox = document.querySelector(`#pos-${pos[0]}-${pos[1]}`)
+        nodeBox.className = 'node'
+        if(node.isStart) nodeBox.classList.add('start-node')
+        if(node.isEnd) nodeBox.classList.add('end-node')
+      }
+    }
+  }
+
   render(){
     const Grid = document.createElement('div')
     Grid.id = 'grid'
@@ -37,7 +51,6 @@ class Board {
       gridRow.className = 'grid-row'
       for(const node of row){
         const nodeBox = document.createElement('li')
-        nodeBox.innerText = 'X'
         nodeBox.className = 'node'
         nodeBox.id = `pos-${node.position[0]}-${node.position[1]}`
         if(node.isStart) nodeBox.classList.add('start-node')

@@ -3,33 +3,47 @@
   list-style-type: none;
 
   .node{
-    border: 1px solid black;
+    // border: 1px solid black;
+    border-radius: 3px;
+    margin: 1.5px;
     box-sizing: border-box;
+    width: 1vw;
+    height: 1vw;
+    background-color: $node-color;
   }
 
   .start-node{
-    background-color: green;
+    background-color: $start;
+    border: 1px solid rgb(255, 255, 255);
   }
 
   .end-node{
-    background-color: red;
+    background-color: $end;
+    border: 1px solid rgb(255, 255, 255);
   }
 
   @keyframes bloom{
-    0% {background-color: yellow;}
-    1% {background-color: yellow;}
-    3% {background-color: green;}
-    100% {background-color: blue;}
+    0% {background-color: $path-color;}
+    2.9% {background-color: $path-color;}
+    3% {
+      // background-color: #515b68;
+      background-color: $searched;
+      border: .25vw solid $node-color
+    }
+    // 5% {background-color: $path-color;}
+    // 15% {background-color: $node-color;}
+    // 50% {background-color: $searched;}
+    100% {background-color: $searched;}
   }
 
   .visited:not(.end-node){
     animation-name: bloom;
-    animation-duration: 2s;
-    background-color: blue;
+    animation-duration: 1s;
+    background-color: $searched;
   }
   
   .path:not(.end-node){
-    background-color: pink;
+    background-color: $path-color;
   }
 }
 
@@ -37,6 +51,12 @@
   display: flex;
   flex-direction: column;
   color: transparent;
+  position: relative;
+  margin: auto;
+  padding: 2vh;
+  border-radius: 5px;
+  background-color: $element-background;
+  box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
 
   button {
     width: 200px;

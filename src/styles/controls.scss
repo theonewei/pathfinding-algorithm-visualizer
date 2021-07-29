@@ -1,4 +1,46 @@
 #controls {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+  margin: auto;
+  width: 15%;
+  // background-color: $element-background;
+  background-color: #bdbdbd;
+  color: rgb(61, 61, 61);
+  border-radius: 15px;
+  border: 20px solid $element-background;
+  box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
+
+  select {
+    padding: 5px;
+    font-family: 'Noto Sans TC', sans-serif;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    border: 2px solid #acacac;
+    color: rgb(61, 61, 61);
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+  button{
+    font-family: 'Noto Sans TC', sans-serif;
+    margin-bottom: 20px;
+    width: 60%;
+    padding: 5px;
+    color: rgb(61, 61, 61);
+    border-radius: 3px;
+    border: 2px solid #acacac;
+    transition: background-color 0.2s;
+    &:hover{
+      background-color: #e3e3e3;
+      cursor: pointer;
+    }
+  }
+
+  #description{
+    margin-bottom: 20px;
+  }
 }

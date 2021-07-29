@@ -10,13 +10,12 @@ function breadthFirstSearch(startNode,speed){
     
     for(const neighbor of curr.neighbors){
       if(neighbor.visited || neighbor.checked) continue
-
       //update neighboring nodes' path from start
       neighbor.pathFromStart = curr.pathFromStart.slice(0)
       neighbor.pathFromStart.push(neighbor.position)
       searchPath.push(neighbor.position)
-
-      if(neighbor.isEnd) return animatePath(searchPath, neighbor.pathFromStart,speed)
+      if(neighbor.isEnd) {
+        return animatePath(searchPath, neighbor.pathFromStart,speed)}
       
       neighbor.checked = true
       queue.enqueue(neighbor)
