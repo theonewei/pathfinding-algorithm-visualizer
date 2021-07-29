@@ -69,7 +69,7 @@ class Board {
     for(let i=0;i<this.height;i++){
       const row = []
       for(let j=0;j<this.width;j++){
-        row.push(new Node([i,j]))
+        row.push(new Node([i,j],this))
       }
       this.grid.push(row)
     }
