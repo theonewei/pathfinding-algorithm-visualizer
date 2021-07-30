@@ -153,7 +153,7 @@ body {
 #controls select {
   padding: 5px;
   font-family: "Noto Sans TC", sans-serif;
-  margin-bottom: 1vh;
+  margin-bottom: 2vh;
   border-radius: 3px;
   border: 2px solid #acacac;
   color: #3d3d3d;
@@ -163,7 +163,7 @@ body {
 }
 #controls button {
   font-family: "Noto Sans TC", sans-serif;
-  margin-bottom: 1vh;
+  margin-bottom: 2vh;
   width: 60%;
   padding: 3px;
   color: #3d3d3d;
@@ -181,7 +181,7 @@ body {
   width: 100%;
 }
 #controls #description {
-  margin-bottom: 1vh;
+  margin-bottom: 2vh;
 }
 
 #legend-bar {

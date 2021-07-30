@@ -3,7 +3,6 @@ import animatePath from "../utils/animate_path";
 function depthFirstSearch(startNode, speed){
   const searchedPath = []
   const endNode = _recursiveSearch(startNode,searchedPath)
-  debugger
   animatePath(searchedPath,endNode.pathFromStart,speed)
 
 }

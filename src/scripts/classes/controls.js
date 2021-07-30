@@ -3,12 +3,14 @@ import aStarSearch from "../algos/astar"
 import greedyBestFirstSearch from "../algos/greedy"
 import depthFirstSearch from "../algos/dfs"
 import recursiveDivision from "../algos/recursive_division"
+import dijkstra from "../algos/dijkstra"
 
 const ALGO_DESCRIPTIONS = {
   'Breadth-First Search': "Breadth-First Search starts at a node and checks all its unchecked neighbors to see if any of them are the target node. If a neighbor is not the target node it is then marked as 'checked' and added to a queue of nodes to be explored. Once all the neighbors of the current node are checked, the process begins again on the next node in the queue. This process repeats until the target node is found or until the there are no more nodes left in the queue.",
   'A* Search': "A* search is a heuristic pathfinding algorithm that chooses which nodes to explore based on a heuristic value. At each node, it assigns each of its neighbors a heuristic value that comes from the sum of its distance travelled and its distance from the end. It then inserts the neighbors into a priority queue that sorts the nodes by their heuristic value. This causes nodes with better heuristic values to be searched first, thus increasing the speed at which the shortest path is found.",
-  'Greedy Best-First Search': 'Greedy Best-First Search is very simliar to A* because it gives soon-to-be explored nodes a heuristic value and then uses that value to determine each node a place in a priority queue. The main difference is that the heuristic function does not take into account distance travelled already',
-  'Depth-First Search': "Depth-First Search begins with a start node and picks a neighor to explore. It will continue to burrow down one branch until every node in that branch has been check. Then it will move onto the original nodes next neighbor. This algorithm doesn't guarantee the shortest path."
+  'Greedy Best-First Search': 'Greedy Best-First Search is very simliar to A* because it gives soon-to-be explored nodes a heuristic value and then uses that value to determine each node a place in a priority queue. The main difference is that the heuristic function does not take into account distance travelled already and only calculates how far the end node is.',
+  'Depth-First Search': "Depth-First Search begins with a start node and picks a neighor to explore. It will then pick one of that node's neighbors and so on until it reaches a deadend. Then it will move onto the original nodes' next neighbor. This algorithm doesn't guarantee the shortest path.",
+  "Dijkstra's": "Dijkstra's algorithm is an improvement on Best-First Search. It begins at a node, adds all the nodes neighbors to a queue if they haven't been checked, and then dequeue the next node to repeat the process until it finds the end node. The only difference is that Dijkstra's has a heuristic that is used to sort the priority queue. Djikstra's heuristic just keeps track of distance travelled so far, prioritizing nodes that have shorter paths to them"
 }
 
 class Controls {
@@ -37,6 +39,9 @@ class Controls {
         break
       case 'Depth-First Search':
         this.algorithm = depthFirstSearch
+        break
+      case "Dijkstra's":
+        this.algorithm = dijkstra
         break
     }
     // this.description = 
@@ -83,14 +88,19 @@ class Controls {
     //dfs option
     const dfs = document.createElement('option')
     dfs.innerText = 'Depth-First Search'
+
+    //dijkstra's option
+    const dijkstra = document.createElement('option')
+    dijkstra.innerText = "Dijkstra's"
     
     //dropdown for selecting algorithm
     const menu = document.createElement('select')
     menu.append(
       dfs,
       bfsOption,
+      dijkstra,
+      greedy,
       astar,
-      greedy
       )
     menu.addEventListener('change',this._changeAlgorithm)
     menu.id = 'algorithm-menu'
