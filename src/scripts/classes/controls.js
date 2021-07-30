@@ -6,11 +6,11 @@ import recursiveDivision from "../algos/recursive_division"
 import dijkstra from "../algos/dijkstra"
 
 const ALGO_DESCRIPTIONS = {
-  'Breadth-First Search': "Breadth-First Search starts at a node and checks all its unchecked neighbors to see if any of them are the target node. If a neighbor is not the target node it is then marked as 'checked' and added to a queue of nodes to be explored. Once all the neighbors of the current node are checked, the process begins again on the next node in the queue. This process repeats until the target node is found or until the there are no more nodes left in the queue.",
-  'A* Search': "A* search is a heuristic pathfinding algorithm that chooses which nodes to explore based on a heuristic value. At each node, it assigns each of its neighbors a heuristic value that comes from the sum of its distance travelled and its distance from the end. It then inserts the neighbors into a priority queue that sorts the nodes by their heuristic value. This causes nodes with better heuristic values to be searched first, thus increasing the speed at which the shortest path is found.",
-  'Greedy Best-First Search': 'Greedy Best-First Search is very simliar to A* because it gives soon-to-be explored nodes a heuristic value and then uses that value to determine each node a place in a priority queue. The main difference is that the heuristic function does not take into account distance travelled already and only calculates how far the end node is.',
   'Depth-First Search': "Depth-First Search begins with a start node and picks a neighor to explore. It will then pick one of that node's neighbors and so on until it reaches a deadend. Then it will move onto the original nodes' next neighbor. This algorithm doesn't guarantee the shortest path.",
-  "Dijkstra's": "Dijkstra's algorithm is an improvement on Best-First Search. It begins at a node, adds all the nodes neighbors to a queue if they haven't been checked, and then dequeue the next node to repeat the process until it finds the end node. The only difference is that Dijkstra's has a heuristic that is used to sort the priority queue. Djikstra's heuristic just keeps track of distance travelled so far, prioritizing nodes that have shorter paths to them"
+  'Breadth-First Search': "Breadth-First Search starts at a node and checks all its unchecked neighbors to see if any of them are the target node. If a neighbor is not the target node it is then marked as 'checked' and added to a queue of nodes to be explored. Once all the neighbors of the current node are checked, the process begins again on the next node in the queue. This process repeats until the target node is found or until the there are no more nodes left in the queue.",
+  "Dijkstra's": "Dijkstra's algorithm is an improvement on Best-First Search. It begins at a node, adds all the nodes neighbors to a queue if they haven't been checked, and then dequeues the next node to repeat the process until it finds the end node. The only difference is that Dijkstra's has a heuristic that is used to sort the priority queue. Djikstra's heuristic keeps track of distance travelled so far. The priority queue pushes nodes with shorter travel distances to the front. Dijsktra's guarantees the shortest path",
+  'Greedy Best-First Search': 'Greedy Best-First Search takes the idea of using a heuristic to allow an algorithm to prioritize nodes with higher chances of success and applies it more effectively by tracking the distance to the end node instead of distance travelled. This allows it to focus on nodes that bring it closer to the goal',
+  'A* Search': "A* Search is a combination of Greedy Best-First Search and Dijkstra's algorithm. The heuristic that A* uses to determine node priority is the sum of distance travelled and distance to the end node. The nodes are also placed in a priority queue.",
 }
 
 class Controls {
@@ -44,7 +44,6 @@ class Controls {
         this.algorithm = dijkstra
         break
     }
-    // this.description = 
     document.querySelector('#description').innerText = ALGO_DESCRIPTIONS[event.target.value]
   }
 
@@ -69,10 +68,13 @@ class Controls {
   }
 
   _generateMaze(){
-    recursiveDivision(-1,this.board.grid.length,-1,this.board.grid[0].length,this.board)
+    recursiveDivision(-1,this.board.grid.length,-1,this.board.grid[0].length,this.board,this.speed)
   }
 
   render(){
+    //////////////////////////////////////////////////////
+    //DROPDOWN MENUS
+
     //bfs option
     const bfsOption = document.createElement('option')
     bfsOption.innerText = 'Breadth-First Search'
@@ -104,11 +106,6 @@ class Controls {
       )
     menu.addEventListener('change',this._changeAlgorithm)
     menu.id = 'algorithm-menu'
-
-    // button for finding path
-    const visualizeButton = document.createElement('button')
-    visualizeButton.innerText = 'Find Path'
-    visualizeButton.addEventListener('click',this._visualizePath)
     
     //speed controller
     const slow = document.createElement('option')
@@ -123,16 +120,39 @@ class Controls {
     speed.append(fast,average,slow)
     speed.id = 'speed-menu'
 
-    const visualizeAndSpeed = document.createElement('div')
-    visualizeAndSpeed.append(visualizeButton,speed)
-    visualizeAndSpeed.className = 'reset-btns'
+    //selectors
+    const select = document.createElement('div')
+    select.append(menu,speed)
+    select.id = 'selector-container'
 
-    //description for algorithm
+    //////////////////////////////////////////////////////
+    //BUTTONS
+
+    // button for finding path
+    const visualizeButton = document.createElement('button')
+    visualizeButton.innerText = 'Find Path'
+    visualizeButton.addEventListener('click',this._visualizePath)
+    
+    //generate maze button
+    const mazeButton = document.createElement('button')
+    mazeButton.innerText = 'Generate Maze'
+    mazeButton.addEventListener('click',this._generateMaze)
+
+    //maze and visualize button container
+    const mazeAndVisualize = document.createElement('div')
+    mazeAndVisualize.append(mazeButton,visualizeButton)
+    mazeAndVisualize.id = 'maze-visualize'
+
+    //////////////////////////////////////////////////////
+    //DESCRIPTION
+
     const description = document.createElement('a')
     description.innerText = ALGO_DESCRIPTIONS['Depth-First Search']
     description.id = 'description'
 
-    //reset buttons
+    //////////////////////////////////////////////////////
+    //RESET BUTTONS
+
     const resetSearch = document.createElement('button')
     resetSearch.addEventListener('click',this._resetBoard)
     resetSearch.innerText = 'Reset Search'
@@ -145,14 +165,11 @@ class Controls {
     resetButtons.append(resetSearch,resetWalls)
     resetButtons.className = 'reset-btns'
 
-    //generate maze button
-    const mazeButton = document.createElement('button')
-    mazeButton.innerText = 'Generate Maze'
-    mazeButton.addEventListener('click',this._generateMaze)
+    //////////////////////////////////////////////////////
+    //ENTIRE PANEL
 
-    //control panel
     const controlPanel = document.createElement('div')
-    controlPanel.append(menu,visualizeAndSpeed,description,resetButtons,mazeButton)
+    controlPanel.append(select,mazeAndVisualize,description,resetButtons)
     controlPanel.id = 'controls'
 
     return controlPanel

@@ -11,7 +11,7 @@ function dijkstra(startNode,speed){
     for(const neighbor of curr.neighbors){
       if(neighbor.checked) continue
       if(neighbor.isEnd){
-        animatePath(searchPath,neighbor.pathFromStart,speed)
+        animatePath(searchPath,curr.pathFromStart,speed)
         return
       }
       neighbor.checked = true

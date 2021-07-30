@@ -30,12 +30,18 @@ class Node {
     return document.querySelector(id)
   }
 
-  addEventListener(){
-    this.getElement().onclick = this._handleClick
+  becomeNormal(element){
+    element.onclick = this._handleClick
+    element.ondragstart = null
+    element.draggable = false
+    element.ondrop = this._drop
   }
-
-  removeEventListener(){
-    this.getElement().onclick = null
+  
+  becomeStartEnd(element){
+    element.onclick = null
+    element.ondragstart = this._startDrag
+    element.draggable = true
+    element.ondrop = null
   }
 
   reset(){
@@ -51,11 +57,14 @@ class Node {
     node.id = `pos-${this.position[0]}-${this.position[1]}`
     if(this.isStart) node.classList.add('start-node')
     if(this.isEnd) node.classList.add('end-node')
-    node.draggable = true
-    node.ondragstart = this._startDrag
-    node.ondrop = this._drop
+    if(this.isEnd || this.isStart){
+      node.draggable = true
+      node.ondragstart = this._startDrag
+    }else{
+      node.ondrop = this._drop
+      node.onclick= this._handleClick
+    }
     node.ondragover = this._dragOver
-    if(!this.isEnd && !this.isStart) node.onclick= this._handleClick
     return node
   }
 

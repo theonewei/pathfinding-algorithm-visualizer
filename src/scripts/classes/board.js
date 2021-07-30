@@ -51,8 +51,8 @@ class Board {
       nodeA.isEnd = false
       nodeB.isEnd = true
     }
-    nodeA.addEventListener()
-    nodeB.removeEventListener()
+    nodeA.becomeNormal(nodeElementA)
+    nodeB.becomeStartEnd(nodeElementB)
   }
 
   reset(){
