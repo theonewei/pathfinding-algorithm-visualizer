@@ -49,7 +49,7 @@ class Node {
     node.ondragstart = this._startDrag
     node.ondrop = this._drop
     node.ondragover = this._dragOver
-    node.onclick= this._handleClick
+    if(!this.isEnd && !this.isStart) node.onclick= this._handleClick
     return node
   }
 
@@ -62,7 +62,6 @@ class Node {
   }
 
   _drop(){
-    console.log(this.position)
     this.board.swap(this.board.draggedNodePosition,this.position)
   }
   

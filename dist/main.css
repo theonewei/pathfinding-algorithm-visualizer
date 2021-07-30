@@ -83,6 +83,9 @@ body {
   height: 1vw;
   background-color: #d9d9d9;
 }
+.grid-row .node:hover {
+  cursor: pointer;
+}
 .grid-row .start-node {
   background-color: green;
   border: 1px solid white;
@@ -202,6 +205,9 @@ body {
 }
 #legend-bar .path {
   background-color: yellow;
+}
+#legend-bar .wall {
+  background-color: black;
 }
 #legend-bar li {
   display: flex;

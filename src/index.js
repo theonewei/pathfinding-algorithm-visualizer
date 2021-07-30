@@ -6,7 +6,7 @@ import Legend from './scripts/classes/legend'
 document.addEventListener('DOMContentLoaded',()=>{
   const body = document.querySelector('body')
   const legend = new Legend()
-  const board = new Board(30,60,[14,50],[7,3])
+  const board = new Board(30,60,[15,10],[15,50])
   const controls = new Controls(board)
   const app = document.createElement('div')
   app.id = 'app'

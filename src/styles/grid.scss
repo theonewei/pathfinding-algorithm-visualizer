@@ -10,6 +10,9 @@
     width: 1vw;
     height: 1vw;
     background-color: $node-color;
+    &:hover{
+      cursor: pointer;
+    }
   }
 
   .start-node{
@@ -45,7 +48,7 @@
   .path:not(.end-node){
     background-color: $path-color;
   }
-
+  
   .wall{
     background-color: black;
   }

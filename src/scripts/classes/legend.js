@@ -37,8 +37,16 @@ class Legend{
     let pathBox = document.createElement('div')
     pathBox.className = 'example path'
     path.append(pathKey,pathBox)
+    
+    //wall node
+    const wall = document.createElement('li')
+    let wallKey = document.createElement('p')
+    wallKey.innerText = 'Wall Node'
+    let wallBox = document.createElement('div')
+    wallBox.className = 'example wall'
+    wall.append(wallKey,wallBox)
 
-    bar.append(start,end,searched,path)
+    bar.append(start,end,searched,path,wall)
     bar.id = 'legend-bar'
 
     return bar
