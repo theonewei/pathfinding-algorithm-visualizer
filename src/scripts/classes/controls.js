@@ -2,6 +2,7 @@ import breadthFirstSearch from "../algos/bfs"
 import aStarSearch from "../algos/astar"
 import greedyBestFirstSearch from "../algos/greedy"
 import depthFirstSearch from "../algos/dfs"
+import recursiveDivision from "../algos/recursive_division"
 
 const ALGO_DESCRIPTIONS = {
   'Breadth-First Search': "Breadth-First Search starts at a node and checks all its unchecked neighbors to see if any of them are the target node. If a neighbor is not the target node it is then marked as 'checked' and added to a queue of nodes to be explored. Once all the neighbors of the current node are checked, the process begins again on the next node in the queue. This process repeats until the target node is found or until the there are no more nodes left in the queue.",
@@ -20,6 +21,7 @@ class Controls {
     this._changeSpeed = this._changeSpeed.bind(this)
     this._resetBoard = this._resetBoard.bind(this)
     this._eraseWalls = this._eraseWalls.bind(this)
+    this._generateMaze = this._generateMaze.bind(this)
   }
 
   _changeAlgorithm(event){
@@ -59,6 +61,10 @@ class Controls {
 
   _eraseWalls(){
     this.board.eraseWalls()
+  }
+
+  _generateMaze(){
+    recursiveDivision(-1,this.board.grid.length,-1,this.board.grid[0].length,this.board)
   }
 
   render(){
@@ -129,9 +135,14 @@ class Controls {
     resetButtons.append(resetSearch,resetWalls)
     resetButtons.className = 'reset-btns'
 
+    //generate maze button
+    const mazeButton = document.createElement('button')
+    mazeButton.innerText = 'Generate Maze'
+    mazeButton.addEventListener('click',this._generateMaze)
+
     //control panel
     const controlPanel = document.createElement('div')
-    controlPanel.append(menu,visualizeAndSpeed,description,resetButtons)
+    controlPanel.append(menu,visualizeAndSpeed,description,resetButtons,mazeButton)
     controlPanel.id = 'controls'
 
     return controlPanel

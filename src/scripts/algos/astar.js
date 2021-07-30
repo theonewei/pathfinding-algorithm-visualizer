@@ -1,4 +1,4 @@
-import animatePath from "../utils/animations";
+import animatePath from "../utils/animate_path";
 import PriorityQueue from "../utils/priority_queue";
 
 function aStarSearch(startNode,speed){

@@ -1,5 +1,5 @@
 import Queue from '../utils/queue'
-import animatePath from '../utils/animations'
+import animatePath from '../utils/animate_path'
 
 function breadthFirstSearch(startNode,speed){
   const queue = new Queue(startNode)

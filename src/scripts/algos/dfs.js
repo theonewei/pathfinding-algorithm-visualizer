@@ -1,4 +1,4 @@
-import animatePath from "../utils/animations";
+import animatePath from "../utils/animate_path";
 
 function depthFirstSearch(startNode, speed){
   const searchedPath = []

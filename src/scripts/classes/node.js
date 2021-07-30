@@ -30,6 +30,14 @@ class Node {
     return document.querySelector(id)
   }
 
+  addEventListener(){
+    this.getElement().onclick = this._handleClick
+  }
+
+  removeEventListener(){
+    this.getElement().onclick = null
+  }
+
   reset(){
     this.visited = false
     this.checked = false
@@ -58,7 +66,6 @@ class Node {
   
   _startDrag(){
     this.board.draggedNodePosition = this.position
-    console.log(this.board.draggedNodePosition)
   }
 
   _drop(){
