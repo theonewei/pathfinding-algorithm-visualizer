@@ -1,15 +1,16 @@
 import breadthFirstSearch from "../algos/bfs"
+import aStarSearch from "../algos/astar"
 
 const ALGO_DESCRIPTIONS = {
-  'Breadth-First Search': "Depth first search starts at a node and checks all its unchecked neighbors to see if any of them are the target node. If a neighbor is not the target node it is then marked as 'checked' and added to a queue of nodes to be explored. Once all the neighbors of the current node are checked, the process begins again on the next node in the queue. This process repeats until the target node is found or until the there are no more nodes left in the queue."
+  'Breadth-First Search': "Breadth-First Search starts at a node and checks all its unchecked neighbors to see if any of them are the target node. If a neighbor is not the target node it is then marked as 'checked' and added to a queue of nodes to be explored. Once all the neighbors of the current node are checked, the process begins again on the next node in the queue. This process repeats until the target node is found or until the there are no more nodes left in the queue.",
+  'A* Search': "A* search is a heuristic pathfinding algorithm that chooses which nodes to explore based on a heuristic value. At each node, it assigns each of its neighbors a heuristic value that comes from the sum of its distance travelled and its distance from the end. It then inserts the neighbors into a priority queue that sorts the nodes by their heuristic value. This causes nodes with better heuristic values to be searched first, thus increasing the speed at which the shortest path is found."
 }
 
 class Controls {
   constructor(board){
     this.board = board
     this.algorithm = breadthFirstSearch
-    this.description = ALGO_DESCRIPTIONS['Breadth-First Search']
-    this.speed = 25
+    this.speed = 5
     this._changeAlgorithm = this._changeAlgorithm.bind(this)
     this._visualizePath = this._visualizePath.bind(this)
     this._changeSpeed = this._changeSpeed.bind(this)
@@ -20,14 +21,16 @@ class Controls {
     switch (event.target.value){
       case 'Breadth-First Search':
         this.algorithm = breadthFirstSearch
-        this.description = ALGO_DESCRIPTIONS[event.target.value]
-      // case 'A* Search':
-      //   this.algorithm = aStarSearch
-      //   this.description = ALGO_DESCRIPTIONS[1]
+        break
+      case 'A* Search':
+        this.algorithm = aStarSearch
+        break
       // case 'Greedy Best-First Search':
       //   this.algorithm = greedyBestFirstSearch
-      //   this.description = ALGO_DESCRIPTIONS[2]
+      //   break
     }
+    // this.description = 
+    document.querySelector('#description').innerText = ALGO_DESCRIPTIONS[event.target.value]
   }
 
   _visualizePath(){
@@ -57,8 +60,8 @@ class Controls {
     bfsOption.innerText = 'Breadth-First Search'
 
     // //astar option
-    // const astar = document.createElement('option')
-    // astar.innerText = 'A* Search'
+    const astar = document.createElement('option')
+    astar.innerText = 'A* Search'
 
     // //greedy option
     // const greedy = document.createElement('option')
@@ -68,7 +71,7 @@ class Controls {
     const menu = document.createElement('select')
     menu.append(
       bfsOption,
-      // astar,
+      astar,
       // greedy
       )
     menu.addEventListener('change',this._changeAlgorithm)
@@ -76,7 +79,7 @@ class Controls {
 
     //description for algorithm
     const description = document.createElement('a')
-    description.innerText = this.description
+    description.innerText = ALGO_DESCRIPTIONS['Breadth-First Search']
     description.id = 'description'
 
     //speed controller
@@ -89,7 +92,7 @@ class Controls {
 
     const speed = document.createElement('select')
     speed.addEventListener('change',this._changeSpeed)
-    speed.append(average,slow,fast)
+    speed.append(fast,average,slow)
     speed.id = 'speed-menu'
 
     //reset button

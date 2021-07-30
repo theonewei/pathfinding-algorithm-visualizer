@@ -45,6 +45,10 @@
   .path:not(.end-node){
     background-color: $path-color;
   }
+
+  .wall{
+    background-color: black;
+  }
 }
 
 #grid{

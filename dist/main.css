@@ -114,6 +114,9 @@ body {
 .grid-row .path:not(.end-node) {
   background-color: yellow;
 }
+.grid-row .wall {
+  background-color: black;
+}
 
 #grid {
   display: flex;

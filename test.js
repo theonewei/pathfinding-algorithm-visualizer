@@ -48,7 +48,7 @@ class PriorityQueue {
   pushUp(){
     let index = this.nodes.length-1
     let parentIndex = this.parent(index) 
-    while(index !== 0 && this.nodes[index].priorityValue <= this.nodes[parentIndex].priorityValue){
+    while(index !== 0 && this.nodes[index].priorityValue < this.nodes[parentIndex].priorityValue){
       this.swap(index,parentIndex)
       index = parentIndex
       parentIndex = this.parent(index)
@@ -61,7 +61,7 @@ class PriorityQueue {
       const rightChildIndex = this.rightChild(index)
       let maxIndex = index
 
-      if(this.nodes[leftChildIndex].priorityValue<=this.nodes[index].priorityValue){
+      if(this.nodes[leftChildIndex].priorityValue<this.nodes[index].priorityValue){
         maxIndex = leftChildIndex
       }
       if(this.nodes[rightChildIndex] && this.nodes[rightChildIndex].priorityValue<=this.nodes[maxIndex].priorityValue){
@@ -85,4 +85,17 @@ class PriorityQueue {
   }
 }
 
-export default PriorityQueue
+class Node {
+  constructor(name,priorityValue){
+    this.priorityValue = priorityValue
+    this.name=name
+  }
+}
+
+nodes = new PriorityQueue([new Node('20',1892)])
+
+for(let i = 0;i<20;i++){
+  let val = Math.floor(Math.random()*i)
+  let node = new Node(`${i}`,val)
+  nodes.enqueue(node)
+}

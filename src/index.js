@@ -2,10 +2,11 @@ import Board from './scripts/classes/board'
 import Controls from './scripts/classes/controls'
 import Legend from './scripts/classes/legend'
 
+
 document.addEventListener('DOMContentLoaded',()=>{
   const body = document.querySelector('body')
   const legend = new Legend()
-  const board = new Board(30,60,[7,3],[14,50])
+  const board = new Board(30,60,[14,50],[7,3])
   const controls = new Controls(board)
   const app = document.createElement('div')
   app.id = 'app'

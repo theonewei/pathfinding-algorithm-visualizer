@@ -8,10 +8,12 @@ class Board {
     this._populateGrid()
     this.setStart(startPos)
     this.setEnd(endPos)
+    this.draggedNodePosition = null
   }
 
   setStart(pos){
     this.node(pos).isStart = true
+    this.node(pos).checked = true
     this.start = this.node(pos)
   }
   
@@ -26,17 +28,35 @@ class Board {
     return this.grid[row][col]
   }
 
+  swap(posA,posB){
+    const nodeA = this.node(posA),
+          nodeB = this.node(posB),
+          nodeElementA = nodeA.getElement(),
+          nodeElementB = nodeB.getElement()
+
+    //update board
+    if(nodeA.isStart) this.start = nodeB
+    if(nodeA.isEnd) this.end = nodeB
+
+    //swap classes
+    if(nodeA.isStart){
+      nodeElementA.classList.remove('start-node')
+      nodeElementB.classList.add('start-node')
+      nodeA.isStart = false
+      nodeB.isStart = true
+    }
+    if(nodeA.isEnd){
+      nodeElementA.classList.remove('end-node')
+      nodeElementB.classList.add('end-node')
+      nodeA.isEnd = false
+      nodeB.isEnd = true
+    }
+  }
+
   reset(){
     for(const row of this.grid){
       for(const node of row){
-        node.visited = false
-        node.checked = false
-        node.pathFromStart = []
-        const pos = node.position
-        const nodeBox = document.querySelector(`#pos-${pos[0]}-${pos[1]}`)
-        nodeBox.className = 'node'
-        if(node.isStart) nodeBox.classList.add('start-node')
-        if(node.isEnd) nodeBox.classList.add('end-node')
+        node.reset()
       }
     }
   }
@@ -50,12 +70,7 @@ class Board {
       const gridRow = document.createElement('ul')
       gridRow.className = 'grid-row'
       for(const node of row){
-        const nodeBox = document.createElement('li')
-        nodeBox.className = 'node'
-        nodeBox.id = `pos-${node.position[0]}-${node.position[1]}`
-        if(node.isStart) nodeBox.classList.add('start-node')
-        if(node.isEnd) nodeBox.classList.add('end-node')
-        gridRow.append(nodeBox)
+        gridRow.append(node.render())
       }
       Grid.append(gridRow)
     }
@@ -86,13 +101,13 @@ class Board {
     for(let row = 0; row<this.height; row++){
       for(let col = 0; col<this.width; col++){
         const currNode = this.grid[row][col]
-        if(row>0){
-          const aboveNode = this.grid[row-1][col]
-          this._linkNodes(currNode,aboveNode)
-        }
         if(col>0){
           const leftNode = this.grid[row][col-1]
           this._linkNodes(currNode,leftNode)
+        }
+        if(row>0){
+          const aboveNode = this.grid[row-1][col]
+          this._linkNodes(currNode,aboveNode)
         }
       }
     }
