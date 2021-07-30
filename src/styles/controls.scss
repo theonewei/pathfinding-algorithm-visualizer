@@ -16,8 +16,8 @@
 
   #selector-container{
     display: flex;
-    // justify-content: space-around;
-
+    justify-content: space-around;
+    width: 100%;
     select {
       padding: 5px;
       font-family: 'Noto Sans TC', sans-serif;

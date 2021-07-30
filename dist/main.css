@@ -153,6 +153,8 @@ body {
 }
 #controls #selector-container {
   display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 #controls #selector-container select {
   padding: 5px;
