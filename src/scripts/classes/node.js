@@ -51,8 +51,6 @@ class Node {
     node.id = `pos-${this.position[0]}-${this.position[1]}`
     if(this.isStart) node.classList.add('start-node')
     if(this.isEnd) node.classList.add('end-node')
-    // if(this.isStart || this.isEnd) {
-    // }
     node.draggable = true
     node.ondragstart = this._startDrag
     node.ondrop = this._drop
