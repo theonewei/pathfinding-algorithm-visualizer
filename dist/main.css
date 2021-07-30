@@ -153,7 +153,7 @@ body {
 #controls select {
   padding: 5px;
   font-family: "Noto Sans TC", sans-serif;
-  margin-bottom: 20px;
+  margin-bottom: 1vh;
   border-radius: 3px;
   border: 2px solid #acacac;
   color: #3d3d3d;
@@ -163,9 +163,9 @@ body {
 }
 #controls button {
   font-family: "Noto Sans TC", sans-serif;
-  margin-bottom: 20px;
+  margin-bottom: 1vh;
   width: 60%;
-  padding: 5px;
+  padding: 3px;
   color: #3d3d3d;
   border-radius: 3px;
   border: 2px solid #acacac;
@@ -175,8 +175,13 @@ body {
   background-color: #e3e3e3;
   cursor: pointer;
 }
+#controls .reset-btns {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
 #controls #description {
-  margin-bottom: 20px;
+  margin-bottom: 1vh;
 }
 
 #legend-bar {

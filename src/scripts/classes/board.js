@@ -61,6 +61,15 @@ class Board {
     }
   }
 
+  eraseWalls(){
+    for(const row of this.grid){
+      for(const node of row){
+        node.wall = false
+        node.getElement().classList.remove('wall')
+      }
+    }
+  }
+
   render(){
     const Grid = document.createElement('div')
     Grid.id = 'grid'

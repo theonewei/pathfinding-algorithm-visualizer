@@ -1,7 +1,7 @@
 import animatePath from "../utils/animations";
 import PriorityQueue from "../utils/priority_queue";
 
-function aStarSearch(startNode,speed){
+function greedyBestFirstSearch(startNode,speed){
   const queue = new PriorityQueue([startNode])
   const searchPath = []
   while(queue.length>0){
@@ -17,8 +17,7 @@ function aStarSearch(startNode,speed){
       if(neighbor.checked) continue
 
       //determine neighbors priority queue value
-      neighbor.distanceFromStart = curr.distanceFromStart+1
-      neighbor.priorityValue = neighbor.distanceFromEnd() + neighbor.distanceFromStart
+      neighbor.priorityValue = neighbor.distanceFromEnd()
 
       //update neighbors path from start
       neighbor.pathFromStart = curr.pathFromStart.slice(0)
@@ -28,4 +27,4 @@ function aStarSearch(startNode,speed){
   }
 }
 
-export default aStarSearch
+export default greedyBestFirstSearch

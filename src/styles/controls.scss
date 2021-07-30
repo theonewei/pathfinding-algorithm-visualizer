@@ -16,7 +16,7 @@
   select {
     padding: 5px;
     font-family: 'Noto Sans TC', sans-serif;
-    margin-bottom: 20px;
+    margin-bottom: 1vh;
     border-radius: 3px;
     border: 2px solid #acacac;
     color: rgb(61, 61, 61);
@@ -27,9 +27,9 @@
 
   button{
     font-family: 'Noto Sans TC', sans-serif;
-    margin-bottom: 20px;
+    margin-bottom: 1vh;
     width: 60%;
-    padding: 5px;
+    padding: 3px;
     color: rgb(61, 61, 61);
     border-radius: 3px;
     border: 2px solid #acacac;
@@ -40,7 +40,14 @@
     }
   }
 
+  .reset-btns{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+  }
+
   #description{
-    margin-bottom: 20px;
+    margin-bottom: 1vh;
   }
 }
