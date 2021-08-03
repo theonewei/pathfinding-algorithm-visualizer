@@ -44,6 +44,7 @@ class Controls {
         this.algorithm = dijkstra
         break
     }
+    this.board.reset()
     document.querySelector('#description').innerText = ALGO_DESCRIPTIONS[event.target.value]
   }
 
@@ -65,6 +66,7 @@ class Controls {
 
   _eraseWalls(){
     this.board.eraseWalls()
+    this.board.reset()
   }
 
   _generateMaze(){
