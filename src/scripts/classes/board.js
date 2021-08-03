@@ -66,6 +66,7 @@ class Board {
   eraseWalls(){
     for(const row of this.grid){
       for(const node of row){
+        if(node.wall) node._linkWithNeighbors()
         node.wall = false
         node.getElement().classList.remove('wall')
       }
