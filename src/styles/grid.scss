@@ -33,9 +33,6 @@
       background-color: $searched;
       border: .25vw solid $node-color
     }
-    // 5% {background-color: $path-color;}
-    // 15% {background-color: $node-color;}
-    // 50% {background-color: $searched;}
     100% {background-color: $searched;}
   }
 
