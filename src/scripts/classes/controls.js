@@ -69,7 +69,7 @@ class Controls {
   }
 
   _generateMaze(){
-    recursiveDivision(-1,this.board.grid.length,-1,this.board.grid[0].length,this.board,this.speed)
+    recursiveDivision(-1,this.board.grid.length,-1,this.board.grid[0].length,this.board,this.speed,[this.board.start.position,this.board.end.position])
   }
 
   render(){
