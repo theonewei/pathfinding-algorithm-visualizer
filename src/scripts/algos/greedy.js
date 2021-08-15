@@ -14,7 +14,7 @@ function greedyBestFirstSearch(startNode,speed){
     curr.checked = true
 
     for(const neighbor of curr.neighbors){
-      if(neighbor.checked) continue
+      if(neighbor.checked || neighbor.wall) continue
 
       //determine neighbors priority queue value
       neighbor.priorityValue = neighbor.distanceFromEnd()

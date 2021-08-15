@@ -15,8 +15,6 @@ class Node {
     this._drop = this._drop.bind(this)
     this._dragOver = this._dragOver.bind(this)
     this._handleClick = this._handleClick.bind(this)
-    this._turnNotWall = this._turnNotWall.bind(this)
-    this._turnIntoWall = this._turnIntoWall.bind(this)
   }
 
   distanceFromEnd(){
@@ -86,39 +84,11 @@ class Node {
 
   _handleClick(){
     if(this.wall){
-      this._turnNotWall()
       this.getElement().classList.remove('wall')
     } else {
-      this._turnIntoWall()
       this.getElement().classList.add('wall')
     }
     this.wall = !this.wall
-  }
-
-  _turnIntoWall(){
-    const neighbors = this.neighbors.concat(this.wallNeighbors)
-    this.neighbors = []
-    this.wallNeighbors = []
-    for(const neighbor of neighbors){
-      if(neighbor.wall){
-        this.neighbors.push(neighbor)
-      }else{
-        this.wallNeighbors.push(neighbor)
-      }
-      //move this node into wallneighbors for all neighbor nodes
-      for(const node of neighbor.neighbors){
-        if(node===this){
-          
-        }
-      }
-    }
-  }
-
-  _turnNotWall(){
-    for(const neighbor of this.neighbors){
-      if(neighbor.wall) continue
-      neighbor.neighbors.push(this)
-    }
   }
 
 }

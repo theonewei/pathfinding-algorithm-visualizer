@@ -45,6 +45,7 @@ class Controls {
         break
     }
     document.querySelector('#description').innerText = ALGO_DESCRIPTIONS[event.target.value]
+    this.board.reset()
   }
 
   _visualizePath(){

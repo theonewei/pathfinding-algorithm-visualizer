@@ -2,7 +2,6 @@ function animateWalls(path,board,speed){
   for(const pos of path){
     const node = board.node(pos)
     node.wall = true
-    node._unlinkWithNeighbors() 
   }
   _animateWalls(path,speed)
 }
