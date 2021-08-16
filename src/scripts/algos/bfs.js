@@ -8,7 +8,7 @@ function breadthFirstSearch(startNode,speed){
     let curr = queue.dequeue()
     curr.checked = true
     for(const neighbor of curr.neighbors){
-      if(neighbor.checked) continue
+      if(neighbor.checked || neighbor.wall) continue
       //update neighboring nodes' path from start
       neighbor.pathFromStart = curr.pathFromStart.slice(0)
       neighbor.pathFromStart.push(neighbor.position)

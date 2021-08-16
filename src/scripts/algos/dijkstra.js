@@ -9,7 +9,7 @@ function dijkstra(startNode,speed){
   while(queue.length > 0){
     const curr = queue.dequeue()
     for(const neighbor of curr.neighbors){
-      if(neighbor.checked) continue
+      if(neighbor.checked || neighbor.wall) continue
       if(neighbor.isEnd){
         animatePath(searchPath,curr.pathFromStart,speed)
         return
