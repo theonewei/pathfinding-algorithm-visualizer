@@ -2,7 +2,8 @@ import breadthFirstSearch from "../algos/bfs"
 import aStarSearch from "../algos/astar"
 import greedyBestFirstSearch from "../algos/greedy"
 import depthFirstSearch from "../algos/dfs"
-import recursiveDivision from "../algos/recursive_division"
+// import recursiveDivision from "../algos/recursive_division"
+import recursiveDivision from "../algos/recursive_division_2"
 import dijkstra from "../algos/dijkstra"
 
 const ALGO_DESCRIPTIONS = {
@@ -50,6 +51,7 @@ class Controls {
   }
 
   _visualizePath(){
+    this.board.reset()
     this.algorithm(this.board.start,this.speed)
   }
 
@@ -71,7 +73,8 @@ class Controls {
   }
 
   _generateMaze(){
-    recursiveDivision(-1,this.board.grid.length,-1,this.board.grid[0].length,this.board,this.speed,[this.board.start.position,this.board.end.position])
+    // recursiveDivision(-1,this.board.grid.length,-1,this.board.grid[0].length,this.board,this.speed,[this.board.start.position,this.board.end.position])
+    recursiveDivision(0,this.board.grid.length-1,0,this.board.grid[0].length-1,this.board,this.speed,[this.board.start.position,this.board.end.position])
   }
 
   render(){
