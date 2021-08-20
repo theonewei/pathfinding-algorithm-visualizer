@@ -22,6 +22,7 @@ function dijkstra(startNode,speed){
       queue.enqueue(neighbor)
     }
   }
+  alert('No path can be found! Remove some obstacles and try again.')
 }
 
 export default dijkstra

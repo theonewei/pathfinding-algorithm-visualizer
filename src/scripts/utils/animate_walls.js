@@ -1,6 +1,6 @@
 function animateWalls(path,board,speed){
   for(const pos of path){
-    const node = board.node(pos)
+    const node = board.node?.(pos)
     node.wall = true
   }
   _animateWalls(path,speed)

@@ -1,6 +1,7 @@
 import Board from './scripts/classes/board'
 import Controls from './scripts/classes/controls'
 import Legend from './scripts/classes/legend'
+import Tutorial from './scripts/classes/tutorial'
 
 
 document.addEventListener('DOMContentLoaded',()=>{
@@ -8,10 +9,13 @@ document.addEventListener('DOMContentLoaded',()=>{
   const legend = new Legend()
   const board = new Board(31,61,[15,10],[15,50])
   const controls = new Controls(board)
+  const tutorial = new Tutorial()
   const app = document.createElement('div')
   app.id = 'app'
   app.append(
     controls.render(),
-    board.render())
+    board.render(),
+    tutorial.render()
+    )
   body.append(legend.render(),app)
 })

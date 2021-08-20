@@ -14,12 +14,13 @@ function breadthFirstSearch(startNode,speed){
       neighbor.pathFromStart.push(neighbor.position)
       searchPath.push(neighbor.position)
       if(neighbor.isEnd) {
-        return animatePath(searchPath, neighbor.pathFromStart,speed)}
-      
+        return animatePath(searchPath, neighbor.pathFromStart,speed)
+      }
       neighbor.checked = true
       queue.enqueue(neighbor)
     }
   }
+  alert('No path can be found! Remove some obstacles and try again.')
 }
 
 export default breadthFirstSearch

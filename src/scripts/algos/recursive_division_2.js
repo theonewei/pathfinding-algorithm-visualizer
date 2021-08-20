@@ -37,7 +37,7 @@ function _recursiveDivision(top,bottom,left,right,wallPathing,vertical,reservedN
     const hole = possibleRows[randomRowIndex]
 
     //drawing the wall
-    for(let i = top;i<=bottom;i++){
+    for(let i = top-1;i<=bottom+1;i++){
       if(i===hole) continue
       if(!isEqual([i,wall],reservedNodes[0]) && !isEqual([i,wall],reservedNodes[1])) wallPathing.push([i,wall])
     }
@@ -62,7 +62,7 @@ function _recursiveDivision(top,bottom,left,right,wallPathing,vertical,reservedN
     const hole = possibleCols[randomColIndex]
 
     //drawing the wall
-    for(let i = left;i<=right;i++){
+    for(let i = left-1;i<=right+1;i++){
       if(i===hole) continue
       if(!isEqual([wall,i],reservedNodes[0]) && !isEqual([wall,i],reservedNodes[1]))wallPathing.push([wall,i])
     }

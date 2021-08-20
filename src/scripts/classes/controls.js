@@ -2,8 +2,8 @@ import breadthFirstSearch from "../algos/bfs"
 import aStarSearch from "../algos/astar"
 import greedyBestFirstSearch from "../algos/greedy"
 import depthFirstSearch from "../algos/dfs"
-// import recursiveDivision from "../algos/recursive_division"
-import recursiveDivision from "../algos/recursive_division_2"
+import recursiveDivision from "../algos/recursive_division"
+// import recursiveDivision from "../algos/recursive_division_2"
 import dijkstra from "../algos/dijkstra"
 
 const ALGO_DESCRIPTIONS = {
@@ -47,7 +47,6 @@ class Controls {
     }
     this.board.reset()
     document.querySelector('#description').innerText = ALGO_DESCRIPTIONS[event.target.value]
-    this.board.reset()
   }
 
   _visualizePath(){
@@ -73,8 +72,8 @@ class Controls {
   }
 
   _generateMaze(){
-    // recursiveDivision(-1,this.board.grid.length,-1,this.board.grid[0].length,this.board,this.speed,[this.board.start.position,this.board.end.position])
-    recursiveDivision(0,this.board.grid.length-1,0,this.board.grid[0].length-1,this.board,this.speed,[this.board.start.position,this.board.end.position])
+    recursiveDivision(-1,this.board.grid.length,-1,this.board.grid[0].length,this.board,this.speed,[this.board.start.position,this.board.end.position])
+    // recursiveDivision(0,this.board.grid.length-1,0,this.board.grid[0].length-1,this.board,this.speed,[this.board.start.position,this.board.end.position])
   }
 
   render(){
@@ -138,6 +137,7 @@ class Controls {
     const visualizeButton = document.createElement('button')
     visualizeButton.innerText = 'Find Path'
     visualizeButton.addEventListener('click',this._visualizePath)
+    visualizeButton.id = 'visualize-btn'
     
     //generate maze button
     const mazeButton = document.createElement('button')
