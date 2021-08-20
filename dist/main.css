@@ -243,17 +243,36 @@ body {
 
 #tutorial {
   position: absolute;
-  width: 75vw;
-  height: 75vh;
+  width: 50vw;
+  height: 50vh;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #bdbdbd;
+  border: 1vw solid #353535;
+  border-radius: 5px;
+  color: black;
+  font-size: 20px;
+}
+#tutorial #title {
+  margin-bottom: 1vh;
+  font-size: larger;
+  padding: auto;
+  text-align: center;
+}
+#tutorial #subtitle {
+  font-size: large;
+  margin-bottom: 4vh;
+  text-align: center;
 }
 #tutorial #close-btn {
   position: absolute;
   right: 5px;
   top: 0;
+  color: black;
+}
+#tutorial #close-btn:hover {
+  cursor: pointer;
 }
 
 #modal {
