@@ -15,7 +15,10 @@ document.addEventListener('DOMContentLoaded',()=>{
   app.append(
     controls.render(),
     board.render(),
-    tutorial.render()
     )
-  body.append(legend.render(),app)
+  body.append(
+    tutorial.render(),
+    legend.render(),
+    app,
+    )
 })
