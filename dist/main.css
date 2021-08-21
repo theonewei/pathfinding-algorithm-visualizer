@@ -285,3 +285,11 @@ body {
 #modal.invisible {
   display: none;
 }
+
+#contact-links {
+  width: 100vw;
+  height: 50px;
+  background-color: #353535;
+  position: absolute;
+  bottom: 0;
+}

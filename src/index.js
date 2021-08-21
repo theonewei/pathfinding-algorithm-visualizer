@@ -1,4 +1,5 @@
 import Board from './scripts/classes/board'
+import contactLinks from './scripts/classes/contact'
 import Controls from './scripts/classes/controls'
 import Legend from './scripts/classes/legend'
 import Tutorial from './scripts/classes/tutorial'
@@ -20,5 +21,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     tutorial.render(),
     legend.render(),
     app,
+    contactLinks
     )
 })
