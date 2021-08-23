@@ -5,3 +5,13 @@
   position: absolute;
   bottom: 0;
 }
+
+
+
+.icon{
+  width:40px;
+  margin: 5px;
+  &:hover{
+    cursor: pointer;
+  }
+}

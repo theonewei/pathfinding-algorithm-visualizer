@@ -22,6 +22,7 @@ class Tutorial{
 
     x.onclick = this._toggleVisiblity
     const instructions = document.createElement('div')
+    instructions.id = 'instructions'
     instructions.innerText="1. Drag Start and End Nodes to where you want them to be\n \n 2. If you want some obstacles for the algorithm to navigate around, you can either click on nodes to turn them into walls or use the maze generator"
 
     box.append(title,subtitle,x,instructions)

@@ -274,6 +274,9 @@ body {
 #tutorial #close-btn:hover {
   cursor: pointer;
 }
+#tutorial #instructions {
+  padding: 1vw;
+}
 
 #modal {
   position: absolute;
@@ -292,4 +295,12 @@ body {
   background-color: #353535;
   position: absolute;
   bottom: 0;
+}
+
+.icon {
+  width: 40px;
+  margin: 5px;
+}
+.icon:hover {
+  cursor: pointer;
 }
