@@ -27,7 +27,9 @@
 
 
 ## Wireframe
-> 
+> ![image](https://user-images.githubusercontent.com/24535630/131730258-b24ab4f2-273a-40d5-88b4-1d375ec21bd2.png)
+
 
 ## Code Snippets
->
+>![image](https://user-images.githubusercontent.com/24535630/131730371-83d723cc-a5b1-4c62-9228-c23ee59f10d5.png)
+![image](https://user-images.githubusercontent.com/24535630/131730468-28f88641-f48d-4f1e-a012-fb7985a8dcf8.png)
