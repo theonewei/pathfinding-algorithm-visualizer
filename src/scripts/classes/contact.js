@@ -29,15 +29,15 @@ function _redirect(site){
   return ()=>{
     switch (site) {
       case 'linkedin':
-        location.href = "https://www.linkedin.com/in/isaac-wei-9945a2105/"
+        window.open("https://www.linkedin.com/in/isaac-wei-9945a2105/","_blank")
         return
   
       case 'github':
-        location.href = "https://github.com/theonewei"
+        window.open("https://github.com/theonewei",'_blank')
         return
       
       case 'angellist':
-        location.href = "https://angel.co/u/isaac-wei"
+        window.open("https://angel.co/u/isaac-wei",'_blank')
         return
     
       default:
