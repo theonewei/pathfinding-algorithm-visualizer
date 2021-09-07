@@ -7,15 +7,14 @@
 ## Technologies
 
 > * Javascript for handling sorting logic and rendering
-* Webpack for bundling files
-* D3 for rendering the graph
+> * Webpack for bundling files
 
 ## Features/MVPS
 
 >  1. Users can press visualize in order to see an algorithm demonstrated on the grid
-2. Users can visualize advanced advanced pathfinding algorithms such as A* and Greedy Best First search which utilize heuristics
-3. Users can control the speed at which the visualization executes
-4. BONUS: Users can add walls/create mazes
+> 2. Users can visualize advanced advanced pathfinding algorithms such as A* and Greedy Best First search which utilize heuristics
+> 3. Users can control the speed at which the visualization executes
+> 4. BONUS: Users can add walls/create mazes
 
 ## Timeline
 
