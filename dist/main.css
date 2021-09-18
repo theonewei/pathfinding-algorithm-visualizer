@@ -297,10 +297,10 @@ body {
   bottom: 0;
 }
 
-.icon {
-  height: 40px;
+i {
+  font-size: 40px;
   margin: 5px;
 }
-.icon:hover {
+i:hover {
   cursor: pointer;
 }

@@ -2,28 +2,24 @@ const contactLinks = document.createElement('div')
 contactLinks.id = 'contact-links'
 
 
-const githubIcon = document.createElement('img')
-githubIcon.src = "/images/github.png"
+const githubIcon = document.createElement('i')
 githubIcon.title = "Github"
-githubIcon.className = 'icon'
+githubIcon.className = 'fab fa-github'
 githubIcon.onclick = _redirect('github')
 
-const linkedInIcon = document.createElement('img')
-linkedInIcon.src = "/images/linkedin.png"
+const linkedInIcon = document.createElement('i')
 linkedInIcon.title = "LinkedIn"
-linkedInIcon.className = 'icon'
+linkedInIcon.className = 'fab fa-linkedin-in'
 linkedInIcon.onclick = _redirect('linkedin')
 
-const angelListIcon = document.createElement('img')
-angelListIcon.src = "/images/angellist.png"
+const angelListIcon = document.createElement('i')
 angelListIcon.title = "AngelList"
-angelListIcon.className = 'icon'
+angelListIcon.className = 'fab fa-angellist'
 angelListIcon.onclick = _redirect('angellist')
 
-const portfolioIcon = document.createElement('img')
-portfolioIcon.src = "/images/portfolio.png"
+const portfolioIcon = document.createElement('i')
 portfolioIcon.title = "Portfolio"
-portfolioIcon.className = 'icon'
+portfolioIcon.className = 'fas fa-portrait'
 portfolioIcon.onclick = _redirect('portfolio')
 
 contactLinks.append(
