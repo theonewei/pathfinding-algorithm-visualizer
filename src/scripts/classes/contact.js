@@ -3,25 +3,25 @@ contactLinks.id = 'contact-links'
 
 
 const githubIcon = document.createElement('img')
-githubIcon.src = "https://img.icons8.com/small/50/000000/github.png"
+githubIcon.src = "/images/github.png"
 githubIcon.title = "Github"
 githubIcon.className = 'icon'
 githubIcon.onclick = _redirect('github')
 
 const linkedInIcon = document.createElement('img')
-linkedInIcon.src = "https://image.flaticon.com/icons/png/512/174/174857.png"
+linkedInIcon.src = "/images/linkedin.png"
 linkedInIcon.title = "LinkedIn"
 linkedInIcon.className = 'icon'
 linkedInIcon.onclick = _redirect('linkedin')
 
 const angelListIcon = document.createElement('img')
-angelListIcon.src = "https://findicons.com/files/icons/2779/simple_icons/2048/angellist.png"
+angelListIcon.src = "/images/angellist.png"
 angelListIcon.title = "AngelList"
 angelListIcon.className = 'icon'
 angelListIcon.onclick = _redirect('angellist')
 
 const portfolioIcon = document.createElement('img')
-portfolioIcon.src = "https://icons-for-free.com/iconfiles/png/512/briefcase+business+bag+documents+bag+general+office+portfolio-1320183163524913670.png"
+portfolioIcon.src = "/images/portfolio.png"
 portfolioIcon.title = "Portfolio"
 portfolioIcon.className = 'icon'
 portfolioIcon.onclick = _redirect('portfolio')
